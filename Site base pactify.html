@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Factions Synchronisée (Firebase)</title>
+    <link rel="stylesheet" href="css base pactify.css"> 
+    <style>
+        .faction-actions {
+            float: right;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestion des Factions</h1>
+        
+        <section id="ajout-section">
+            <h2>Ajouter une Nouvelle Faction</h2>
+            <form id="faction-form">
+                <label for="nom">Nom de la Faction :</label>
+                <input type="text" id="nom" name="nom" required>
+                
+                <label for="coordonnees">Coordonnées (X, Y, Z) :</label>
+                <input type="text" id="coordonnees" name="coordonnees" placeholder="Ex: 1500, -32, 200" required>
+                
+                <button type="submit">Ajouter à la base de données</button>
+            </form>
+            <p id="message-ajout" class="message"></p>
+        </section>
+
+        <hr>
+
+        <section id="recherche-section">
+            <h2>Rechercher une Faction</h2>
+            <input type="text" id="search-bar" placeholder="Entrez le nom de la faction...">
+            
+            <h3>Résultats :</h3>
+            <div id="resultats-recherche">
+                <p>Aucune recherche effectuée.</p>
+            </div>
+        </section>
+        
+        <hr>
+        
+        <section id="toutes-factions-section">
+            <h2>Toutes les Factions Enregistrées</h2>
+            <ul id="factions-list" class="faction-item-container"> 
+                </ul>
+        </section>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    
+    <script>
+  // *** REMPLACEZ CE BLOC PAR VOTRE CONFIGURATION FIREBASE UNIQUE ! ***
+  const firebaseConfig = {
+    apiKey: "AIzaSyCMTaB1XNYzHbgpPYR54IJkC_Iz7QYHM60",
+    authDomain: "base-pactify.firebaseapp.com",
+    projectId: "base-pactify",
+    storageBucket: "base-pactify.firebasestorage.app",
+    messagingSenderId: "41888338339",
+    appId: "1:41888338339:web:6c71be9379c89ad7f04a16",
+    
+    // ** CORRECTION CLÉ : AJOUT DE L'URL RÉGIONALE DE VOTRE BASE DE DONNÉES **
+    databaseURL: "https://base-pactify-default-rtdb.europe-west1.firebasedatabase.app"
+  };
+
+  // Initialisation de Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  // Initialisation de la Realtime Database
+  const db = firebase.database();
+  const factionsRef = db.ref('factions'); // La référence à votre liste de données
+</script>
+
+    <script src="js base pactify.js"></script>
+</body>
+</html>

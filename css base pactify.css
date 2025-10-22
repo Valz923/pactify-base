@@ -1,0 +1,186 @@
+/* Importation d'une police Google Fonts pour un look moderne */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* --- Variables de Thème (Couleurs faciles à changer) --- */
+:root {
+    --couleur-primaire: #3498db; /* Bleu vif */
+    --couleur-secondaire: #2c3e50; /* Bleu marine foncé */
+    --couleur-background: #ecf0f1; /* Gris clair */
+    --couleur-texte: #333333;
+    --couleur-success: #27ae60; /* Vert pour succès */
+    --couleur-erreur: #e74c3c; /* Rouge pour erreur */
+    --couleur-bordure: #bdc3c7; /* Gris bordure */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Général --- */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: var(--couleur-background);
+    color: var(--couleur-texte);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    line-height: 1.6;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 900px;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* --- Titres --- */
+h1 {
+    color: var(--couleur-secondaire);
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 2.5em;
+    border-bottom: 3px solid var(--couleur-primaire);
+    padding-bottom: 15px;
+}
+
+h2 {
+    color: var(--couleur-primaire);
+    font-weight: 400;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: var(--couleur-secondaire);
+    margin-top: 25px;
+    border-left: 5px solid var(--couleur-bordure);
+    padding-left: 10px;
+    font-weight: 400;
+}
+
+/* --- Formulaires et Entrées --- */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: var(--couleur-secondaire);
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--couleur-bordure);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--couleur-primaire);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    outline: none;
+}
+
+/* --- Boutons --- */
+button {
+    background-color: var(--couleur-primaire);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #2980b9; /* Bleu légèrement plus foncé */
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* --- Séparateur --- */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--couleur-bordure);
+    margin: 40px 0;
+}
+
+/* --- Listes et Résultats --- */
+#factions-list, #resultats-recherche {
+    list-style: none;
+    padding: 0;
+}
+
+/* Style des éléments individuels (factions) */
+#factions-list li, #resultats-recherche div {
+    background-color: var(--couleur-background);
+    border-left: 5px solid var(--couleur-primaire);
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+#factions-list strong, #resultats-recherche strong {
+    color: var(--couleur-secondaire);
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* --- Bouton Supprimer et Actions --- */
+.faction-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.delete-btn {
+    background-color: var(--couleur-erreur);
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* --- Messages de Notification --- */
+.message {
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: 700;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.message.success {
+    background-color: #e6f7ee;
+    color: var(--couleur-success);
+    border-color: var(--couleur-success);
+}
+
+.message.error {
+    background-color: #fcebeb;
+    color: var(--couleur-erreur);
+    border-color: var(--couleur-erreur);
+}
+
+/* Ajustement pour la barre de recherche */
+#search-bar {
+    width: calc(100% - 22px);
+}
